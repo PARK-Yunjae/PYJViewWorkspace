@@ -12,16 +12,15 @@ button,input,textarea,select{
   font-family: 'Montserrat' , sans-serif;
   outline: none;
 }
+html{
+  scroll-behavior: smooth;
+}
 body{
   margin: 0;
   height: 100vh;
   font-family: 'Montserrat' , sans-serif;
   /* font-family: 'Noto Sans KR' , sans-serif; */
   line-height: 1.5em;
-}
-
-html{
-  scroll-behavior: smooth;
 }
 .container{
   height: 100%;
@@ -40,21 +39,9 @@ header{
   width: 100%;
   top: 0;
   left:0;
+  padding-top:10px;
+  z-index: 1000;
 }
-
-.banner, nav{
-  background-color: white;
-  transition: 0.5s;
-  box-shadow: 5px 5px 20px #00000067;
-}
-header.active .banner{
-  display: none;
-}
-
-header.active nav .gnb li a{
-  color: black;
-}
-
 .banner{
   /* border: 1px solid blue; */
   background-color: black;
@@ -62,7 +49,6 @@ header.active nav .gnb li a{
   display: flex;
   align-items: center;
 }
-
 .lnb{
   width: 1300px;
   /* border: 1px solid plum; */
@@ -82,17 +68,21 @@ header.active nav .gnb li a{
 }
 
 nav{
-  width: 1300px;
   /* border: 1px solid red; */
   /* background-color: lightgrey; */
   margin: auto;
   display: flex;
+}
+
+nav .inner{
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.logo{
+  padding-top: 10px;
+}
 
-/* .logo{} */
-/* .logo img{} */
 .gnb{
   display: flex;
 }
@@ -107,6 +97,45 @@ nav{
 }
 .gnb li a:hover{
   color: #222;
+}
+
+.trigger {
+  display: none;
+}
+/* Header with active class */
+header.active {
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+header.active .gnb li a {
+  color: #000;
+}
+header.active .banner {
+  height: 0;
+  overflow: hidden;
+}
+header.active nav {
+  padding-bottom: 20px;
+}
+
+.gototop {
+  background: linear-gradient(45deg, skyblue, #c1e4f2);
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  right: 20px;
+  bottom: -20px;
+  opacity: 0;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 50px;
+  transition: 0.5s;
+}
+.gototop.active {
+  bottom: 20px;
+  opacity: 1;
 }
 
 /* intro */
@@ -256,7 +285,7 @@ nav{
   font-weight: 300;
   text-transform: uppercase;
 }
-.testimonial-content h2 b{}
+/* .testimonial-content h2 b{} */
 .testimonial-content hr{
   /* 블럭요소 */
   border: none;
@@ -265,9 +294,9 @@ nav{
   width: 120px;
   margin: 30px auto;
 }
-.myslider{
-  /* border: 1px solid red; */
-}
+/* .myslider{
+  border: 1px solid red;
+} */
 .myslider div{
   /* border: 1px solid green; */
   height: 300px;
@@ -291,6 +320,8 @@ nav{
   display: block;
 }
 .comment{
+    /* display: block; */
+    /* text-align: left; */
   font-size: 16px;
   line-height: 1.6em;
   padding: 10px;
@@ -371,10 +402,9 @@ z-index 없을때
 .festival-heading h3 span{
   font-weight: 500;
 }
-.btns{
-  /* border: 1px solid red; */
-
-}
+/* .btns{
+  border: 1px solid red;
+} */
 .btns a{
   display: inline-block;
   width: 200px;
@@ -426,24 +456,8 @@ footer{
   flex: 2;
 }
 
-.btn-top{
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: mintcream;
-  bottom: 20px;
-  right: 20px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 30px;
-  transform: translateY(100px);
-  opacity: 0;
-
-  transition: 0.5s;
-}
-
-.btn-top.active{
-  opacity: 1;
-  transform: translateY(0);
+/* Slick.js */
+button.slick-arrow {
+  /* border: 1px solid #000; */
+  display: none !important;
 }
