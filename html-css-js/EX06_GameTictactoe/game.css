@@ -1,0 +1,59 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+fieldset{
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 0;
+}
+legend{
+    text-align: center;
+    font-size: 3em;
+}
+button{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+table{
+    width: 270px;
+    height: 270px;
+}
+tr{
+}
+td{
+    text-align: center;
+    width: 33%;
+    height: 33%;
+    font-size: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+label{
+    position: absolute;
+    margin-top: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    border-radius: 20px;
+    opacity: 0;
+    font-size: 30px;
+    color: white;
+    top: 0;
+    text-align: center;
+    line-height: 100px;
+}
+
+.o{
+    background-color: pink;
+}
+.x{
+    background-color: skyblue;
+}

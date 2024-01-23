@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>1</h1>
+</body>
+
+</html>
+<script>
+    // const h1 = document.querySelector('h1');
+    // let num = 15.0;
+    // let interval = setInterval(() => {
+    //     h1.innerHTML = num.toFixed(2);
+    //     num -= 0.01;
+
+    //     if (num < 0) {
+    //         clearInterval(interval);
+    //         h1.innerHTML = "15초가 지났습니다";
+    //     }
+    // }, 10); 
+    const totalTime = 5 * 1000;
+    const startTime = new Date().getTime();
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = now - startTime;
+        // 남은 시간
+        const remain = totalTime - diff;
+        // 초단위 변환
+        const remainSec = (remain / 1000).toFixed(2);
+        let label = `남은시간 ${remainSec}초`;
+
+        if (remainSec <= 0) {
+            clearInterval(interval);
+            label = "5초가 지났습니다";
+        }
+        document.querySelector('h1').innerHTML = label;
+    }, 10);
+</script>

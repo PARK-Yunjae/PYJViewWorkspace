@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trans {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: lawngreen;
+            left: -200px;
+            transition: 2s;
+        }
+
+        .trans.active {
+            left: 0px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>토글</button>
+    <div class="trans"></div>
+</body>
+
+</html>
+<script>
+    let btn = document.querySelector("button");
+    let div = document.querySelector("div");
+    btn.addEventListener('click', () => {
+        if (div.className == 'trans') {
+            div.className = 'trans active';
+        }
+        else {
+            div.className = 'trans';
+        }
+    })
+</script>

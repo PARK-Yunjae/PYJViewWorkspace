@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="400"></canvas>
+
+</body>
+
+</html>
+<script>
+    const canvas = document.querySelector("#canvas");
+    const ctx = canvas.getContext('2d');
+    let radis = 10;
+    let x = radis;
+
+    let draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.rect(x, 200, 50, 50);
+        // ctx.arc(x, 200, radis, 0, Math.PI * 2);
+        ctx.fillStyle = "green";
+        ctx.fill(); // 나중에는 img 로 채울수있음 
+        x += 1;
+        if (x >= canvas.width - radis) {
+            clearInterval(timer);
+        }
+
+    }
+
+    let timer = setInterval(draw, 3)
+
+    canvas.addEventListener("click", () => {
+        clearInterval(timer);
+    })
+
+</script>

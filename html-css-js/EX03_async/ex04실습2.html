@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1></h1>
+    <button class="reset">초기화</button>
+    <button class="exit">중지</button>
+</body>
+
+</html>
+<script>
+    let h1 = document.querySelector('h1');
+    let btn = document.querySelectorAll('button');
+    let cnt = 0;
+    let ti = 0;
+
+    function cntFnc() {
+        h1.textContent = cnt++;
+    }
+    let interval = setInterval(cntFnc, 100);
+    // setInterval(sayHi, 500);'
+
+    function a() {
+
+    }
+
+    let clickable = true;
+    btn[0].addEventListener('click', () => {
+        if (!clickable) return;
+        clearInterval(interval);
+        clickable = false;
+        cnt = 0;
+
+        setTimeout(function () {
+            console.log("클릭2?");
+            interval = setInterval(cntFnc, 100);
+            clickable = true;
+        }, 1000);
+    })
+
+    btn[1].addEventListener('click', () => {
+        clearInterval(interval);
+    });
+</script>

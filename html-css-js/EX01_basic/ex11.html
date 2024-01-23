@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            height: 50px;
+            background-color: #303030;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        span {
+            color: white;
+        }
+
+        main {
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        h2 {
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>유저 ID : </span><input type="text" id="search-id-input">
+    </header>
+    <main>
+        <h2 id="search-result">유저 검색 결과 없음</h2>
+    </main>
+</body>
+
+</html>
+<script>
+    const userDataList = [
+        { id: 123, name: "홍길동" },
+        { id: 22, name: "둘리" },
+        { id: 32, name: "또치" },
+    ];
+    const searchInput = document.querySelector('#search-id-input');
+    const searchResult = document.querySelector('#search-result');
+
+    searchInput.addEventListener('keyup', () => {
+        // addEventListener 콜백함수 부를때 event내장되어 들어옴
+        // console.log(event.target.value);
+        const targetData = userDataList.find((data) => data.id == event.target.value);
+
+        searchResult.textContent = targetData ? targetData.name : '유저 검색 결과 없음';
+    });
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form>
+        <input type="text" class="text" placeholder="내용작성">
+        <input type="submit" value="저장하기">
+        <br>
+        <input type="text" class="text" placeholder="내용작성">
+        <input type="submit" value="삭제하기">
+        <!-- <button>저장하기</button> -->
+    </form>
+    <div class="save"></div>
+</body>
+
+</html>
+<script>
+    const input = document.querySelectorAll("input[type='text']");
+    const save = document.querySelector(".save");
+    // const form = document.querySelector("form");
+    const btn = document.querySelectorAll("input[type='submit']");
+    const inputdata = localStorage.getItem("input_data") ?
+        JSON.parse(localStorage.getItem("input_data")) : [];
+
+    btn[0].addEventListener("click", e => {
+        e.preventDefault();
+        inputdata.push(input[0].value);
+        localStorage.setItem("input_data", JSON.stringify(inputdata));
+        input[0].value = "";
+        window.location.reload();
+    });
+
+    btn[1].addEventListener("click", e => {
+        e.preventDefault();
+        let delIdx = inputdata.indexOf(input[1].value);
+        delIdx != -1 && inputdata.splice(delIdx, 1);
+        localStorage.setItem("input_data", JSON.stringify(inputdata));
+        input[1].value = "";
+        window.location.reload();
+    });
+
+    let data = "";
+    inputdata.forEach(value => {
+        data += value + ",";
+    });
+    if (data) {
+        save.innerHTML = data;
+    }
+</script>

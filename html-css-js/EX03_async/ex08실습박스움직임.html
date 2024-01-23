@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: royalblue;
+            margin: 5px 0;
+            position: relative;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 50px;
+            margin: 5px 0;
+            position: absolute;
+            background-color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <label class="box2"> </label>
+</body>
+
+</html>
+<script>
+    const boxs = document.querySelectorAll('div');
+    const box2 = document.querySelector('.box2');
+    let num = 0;
+
+    function move(element, endPoint) {
+        let left = element.style.left;
+
+        function draw() {
+            left++;
+            element.style.left = left + "px";
+            if (left >= endPoint) {
+                clearInterval(timer);
+            }
+        }
+
+        let timer = setInterval(draw, 1);
+    }
+
+    boxs.forEach(box => {
+        box.addEventListener('click', () => {
+            move(box, 500);
+        })
+    })
+
+    box2.addEventListener('click', () => {
+        let top = box2.style.top;
+        box2.style.position = 'absolute';
+        box2.animate({
+            top: ['0px', '500px']
+        }, {
+            duration: 1000,
+            easing: 'ease-in',
+            interations: 4, // infinity
+        })
+        // let a = setInterval(() => {
+        //     box2.style.position = 'absolute';
+        //     box2.style.top = top++ + 'px';
+        //     if( top > 1000){
+        //         clearInterval(a);
+        //     }
+        // }, 1);
+    })
+
+</script>

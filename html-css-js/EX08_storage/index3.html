@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .save {
+            font-size: 10em;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="text" class="text" placeholder="내용작성">
+        <input type="submit" value="저장하기">
+        <!-- <button>저장하기</button> -->
+    </form>
+    <div class="save"></div>
+</body>
+
+</html>
+<script>
+    const input = document.querySelector("input[type='text']");
+    // const btn = document.querySelector("input[type='submit']");
+    const save = document.querySelector(".save");
+
+    // btn.addEventListener("click", (e) => {
+    //     // submit 요청값을 가지고 어디론가(서버로) 간다.
+    //     // 페이지 새로고침
+    //     e.preventDefault();
+    //     localStorage.setItem("input_value", input.value);
+    //     input.value = "";
+    //     window.location.reload();
+    // })
+    // save.innerHTML = localStorage.getItem('input_value');
+    const form = document.querySelector("form");
+    // const input = form.querySelector("input");
+
+    // form.addEventListener("submit", e => {
+    //     e.preventDefault();
+    //     localStorage.setItem("input_value", input.value);
+    //     input.value = "";
+    //     // window.location.reload();
+    //     save.innerHTML = localStorage.getItem('input_value');
+    // })
+    // save.innerHTML = localStorage.getItem('input_value');
+
+    // const myCat = {
+    //     name: "복다주",
+    //     age: 12
+    // };
+
+    // const myArray = [10, 20, 30, 40];
+
+    // // 객체를 String 바꾸는 방법 => JSON
+
+    // let data = JSON.stringify(myCat);
+
+    // localStorage.setItem("myCat", data);
+    // localStorage.setItem("myArr", JSON.stringify(myArray));
+
+    // document.write(localStorage.getItem("myCat"));
+    // document.write(localStorage.getItem("myArr") + "<br>");
+
+    // let myArr = localStorage.getItem("myArr");
+
+    // document.write(typeof myArr + "<br>");
+
+    // let savedObj = JSON.parse(localStorage.getItem("myCat"));
+    // let savedArr = [...JSON.parse(myArr)];
+
+    // savedArr.forEach(e => {
+    //     document.write(e + "<br>" + typeof e);
+
+    // });
+
+    // document.write(typeof savedObj + "<br>");
+    // document.write(typeof savedArr + "<br>");
+
+    let arr = [];
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        arr = JSON.parse(localStorage.getItem("arr"));
+        arr.push(input.value);
+        localStorage.setItem("arr", JSON.stringify(arr));
+        input.value = "";
+        // window.location.reload();
+        save.innerHTML = localStorage.getItem('arr');
+    })
+</script>
