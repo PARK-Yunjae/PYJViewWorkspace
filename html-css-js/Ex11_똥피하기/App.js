@@ -42,7 +42,6 @@ class App {
         this.player.render(this.ctx);
         this.poopList.forEach(x => x.render(this.ctx));
     }
-
 }
 
 let app = new App();
